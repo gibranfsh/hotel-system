@@ -12,10 +12,12 @@ class Guest extends Migration
             //
         // Membuat kolom/field untuk tabel news
 		$this->forge->addField([
-			'guestID'          => [
-				'type'           => 'VARCHAR',
-				'constraint'     => 10
-			],
+            'id' => [
+                'type'           => 'INT',
+                'constraint'     => 5,
+                'unsigned'       => true,
+                'auto_increment' => true,
+            ],
 			'guestName'       => [
 				'type'           => 'VARCHAR',
 				'constraint'     => '255'
@@ -28,10 +30,22 @@ class Guest extends Migration
 				'type'           => 'VARCHAR',
 				'constraint'           => 255,
 			],
+			'created_at' => [
+                'type'       => 'DATETIME',
+                'null'       => true,
+            ],
+            'updated_at' => [
+                'type'       => 'DATETIME',
+                'null'       => true,
+            ],
+            'deleted_at' => [
+                'type'       => 'DATETIME',
+                'null'       => true,
+            ],
 		]);
 
 		// Membuat primary key
-		$this->forge->addKey('guestID', TRUE);
+		$this->forge->addKey('id', TRUE);
 
 		// Membuat tabel news
 		$this->forge->createTable('guest', TRUE);

@@ -23,6 +23,18 @@ class Room extends Migration
 				'type'           => 'ENUM',
 				'constraint'     => ['Available', 'Unavailable']
 			],
+			'created_at' => [
+                'type'       => 'DATETIME',
+                'null'       => true,
+            ],
+            'updated_at' => [
+                'type'       => 'DATETIME',
+                'null'       => true,
+            ],
+            'deleted_at' => [
+                'type'       => 'DATETIME',
+                'null'       => true,
+            ],
 		]);
 
 		// Membuat primary key

@@ -6,16 +6,19 @@ use CodeIgniter\Database\Migration;
 
 class RoomReservation extends Migration
 {
-    public function up()
-    {
-        $this->forge->addField([
-			'roomReservationID'      => [
-				'type'           => 'VARCHAR',
-				'constraint'     => 10
+	public function up()
+	{
+		$this->forge->addField([
+			'id' => [
+				'type'           => 'INT',
+				'constraint'     => 5,
+				'unsigned'       => true,
+				'auto_increment' => true,
 			],
 			'reservationID'       => [
-				'type'           => 'VARCHAR',
-                'constraint'    => 10
+				'type'           => 'INT',
+				'constraint'     => 5,
+				'unsigned'       => true,
 			],
 			'roomNumber'      => [
 				'type'           => 'INT',
@@ -23,20 +26,32 @@ class RoomReservation extends Migration
 			'price' => [
 				'type'           => 'INT',
 			],
+			'created_at' => [
+				'type'       => 'DATETIME',
+				'null'       => true,
+			],
+			'updated_at' => [
+				'type'       => 'DATETIME',
+				'null'       => true,
+			],
+			'deleted_at' => [
+				'type'       => 'DATETIME',
+				'null'       => true,
+			],
 		]);
 
 		// Membuat primary key
-		$this->forge->addKey('roomReservationID', TRUE);
-        $this->forge->addForeignKey('reservationID', 'reservation', 'reservationID', 'CASCADE', 'CASCADE', 'fk_roomReservation_reservation');
-        $this->forge->addForeignKey('roomNumber', 'room', 'roomNumber', 'CASCADE', 'CASCADE', 'fk_room_reservation_roomNumber');
+		$this->forge->addKey('id', TRUE);
+		$this->forge->addForeignKey('reservationID', 'reservation', 'id', 'CASCADE', 'CASCADE', 'fk_roomReservation_reservation');
+		$this->forge->addForeignKey('roomNumber', 'room', 'roomNumber', 'CASCADE', 'CASCADE', 'fk_roomReservation_roomNumber');
 
 		// Membuat tabel news
 		$this->forge->createTable('room_reservation', TRUE);
-    }
+	}
 
-    public function down()
-    {
-        //
-        $this->forge->dropTable('room_reservation');
-    }
+	public function down()
+	{
+		//
+		$this->forge->dropTable('room_reservation');
+	}
 }
