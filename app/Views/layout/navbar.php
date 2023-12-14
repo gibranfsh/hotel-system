@@ -8,25 +8,25 @@
     <title>GIN Hotel</title>
     <style>
         body {
-            padding-top: 56px; /* Adjusted to accommodate the fixed navbar */
+            padding-top: 56px;
         }
 
         .navbar {
-            background-color: #f8f9fa; /* Light gray background */
+            background-color: #f8f9fa;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .navbar-brand {
             font-weight: bold;
-            color: #007bff; /* Blue color */
+            color: #007bff;
         }
 
         .navbar-nav .nav-link {
-            color: #343a40; /* Dark gray color */
+            color: #343a40;
         }
 
         .navbar-nav .nav-link:hover {
-            color: #0056b3; /* Hover color */
+            color: #0056b3;
         }
     </style>
 </head>
@@ -54,9 +54,6 @@
             </div>
         </div>
     </nav>
-
-    <!-- Your page content goes here -->
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
