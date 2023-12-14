@@ -9,10 +9,12 @@ class Payment extends Migration
     public function up()
     {
         $this->forge->addField([
-			'paymentID'          => [
-				'type'           => 'VARCHAR',
-				'constraint'     => 10
-			],
+            'id' => [
+                'type'           => 'INT',
+                'constraint'     => 5,
+                'unsigned'       => true,
+                'auto_increment' => true,
+            ],
 			'billTotal'       => [
 				'type'           => 'INT'
 			],
@@ -24,10 +26,22 @@ class Payment extends Migration
 				'type'           => 'ENUM',
 				'constraint'     => ['Paid', 'Unpaid']
 			],
+			'created_at' => [
+                'type'       => 'DATETIME',
+                'null'       => true,
+            ],
+            'updated_at' => [
+                'type'       => 'DATETIME',
+                'null'       => true,
+            ],
+            'deleted_at' => [
+                'type'       => 'DATETIME',
+                'null'       => true,
+            ],
 		]);
 
 		// Membuat primary key
-		$this->forge->addKey('paymentID', TRUE);
+		$this->forge->addKey('id', TRUE);
 
 		// Membuat tabel news
 		$this->forge->createTable('payment', TRUE);

@@ -9,10 +9,12 @@ class ReservationPIC extends Migration
     public function up()
     {
         $this->forge->addField([
-			'employeeID'          => [
-				'type'           => 'VARCHAR',
-				'constraint'     => 10
-			],
+            'id' => [
+                'type'           => 'INT',
+                'constraint'     => 5,
+                'unsigned'       => true,
+                'auto_increment' => true,
+            ],
 			'phoneNumber'       => [
 				'type'           => 'VARCHAR',
                 'constraint'     => 15
@@ -25,18 +27,30 @@ class ReservationPIC extends Migration
 				'type'           => 'VARCHAR',
 				'constraint'     => 45
 			],
+			'created_at' => [
+                'type'       => 'DATETIME',
+                'null'       => true,
+            ],
+            'updated_at' => [
+                'type'       => 'DATETIME',
+                'null'       => true,
+            ],
+            'deleted_at' => [
+                'type'       => 'DATETIME',
+                'null'       => true,
+            ],
 		]);
 
 		// Membuat primary key
-		$this->forge->addKey('employeeID', TRUE);
+		$this->forge->addKey('id', TRUE);
 
 		// Membuat tabel news
-		$this->forge->createTable('reservationPIC', TRUE);
+		$this->forge->createTable('reservation_pic', TRUE);
     }
 
     public function down()
     {
         //
-        $this->forge->dropTable('reservationPIC');
+        $this->forge->dropTable('reservation_pic');
     }
 }

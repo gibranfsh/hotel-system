@@ -1,102 +1,29 @@
-ERROR - 2023-12-14 09:02:28 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Card) NOT NULL,
-	`paymentStatus` ENUM(Paid) NOT NULL,
-	CONSTRAINT `pk_payment...' at line 4 in C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+ERROR - 2023-12-14 13:19:20 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '),
+	CONSTRAINT `reservation_paymentID_foreign` FOREIGN KEY (`paymentID`) REFE...' at line 13 in C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
 Stack trace:
-#0 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `p...', 0)
-#1 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `p...')
-#2 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `p...')
-#3 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `p...')
-#4 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\app\Database\Migrations\2023-12-14-085944_Payment.php(33): CodeIgniter\Database\Forge->createTable('payment', true)
-#5 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\Payment->up()
-#6 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
-#7 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
-#8 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
-#9 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
-#10 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\spark(102): CodeIgniter\CLI\Console->run()
+#0 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `r...', 0)
+#1 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `r...')
+#2 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `r...')
+#3 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `r...')
+#4 C:\xampp\htdocs\hotel-system\app\Database\Migrations\2023-12-14-091305_Reservation.php(60): CodeIgniter\Database\Forge->createTable('reservation', true)
+#5 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\Reservation->up()
+#6 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\hotel-system\spark(102): CodeIgniter\CLI\Console->run()
 #11 {main}
-ERROR - 2023-12-14 09:18:22 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL,
-	CONSTRAINT `pk_reservation` PRIMARY KEY(`reservationID`),
-	CONSTRA...' at line 7 in C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+ERROR - 2023-12-14 13:24:13 --> mysqli_sql_exception: Can't create table `hotel-system-db`.`reservation` (errno: 150 "Foreign key constraint is incorrectly formed") in C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
 Stack trace:
-#0 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `r...', 0)
-#1 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `r...')
-#2 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `r...')
-#3 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `r...')
-#4 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\app\Database\Migrations\2023-12-14-091305_Reservation.php(42): CodeIgniter\Database\Forge->createTable('reservation', true)
-#5 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\Reservation->up()
-#6 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
-#7 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
-#8 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
-#9 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
-#10 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\spark(102): CodeIgniter\CLI\Console->run()
-#11 {main}
-ERROR - 2023-12-14 09:20:01 --> mysqli_sql_exception: Can't create table `hotel`.`reservation` (errno: 150 "Foreign key constraint is incorrectly formed") in C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
-Stack trace:
-#0 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `r...', 0)
-#1 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `r...')
-#2 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `r...')
-#3 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `r...')
-#4 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\app\Database\Migrations\2023-12-14-091305_Reservation.php(43): CodeIgniter\Database\Forge->createTable('reservation', true)
-#5 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\Reservation->up()
-#6 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
-#7 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
-#8 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
-#9 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
-#10 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\spark(102): CodeIgniter\CLI\Console->run()
-#11 {main}
-ERROR - 2023-12-14 09:21:59 --> mysqli_sql_exception: Can't create table `hotel`.`reservation` (errno: 150 "Foreign key constraint is incorrectly formed") in C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
-Stack trace:
-#0 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `r...', 0)
-#1 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `r...')
-#2 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `r...')
-#3 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `r...')
-#4 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\app\Database\Migrations\2023-12-14-091305_Reservation.php(43): CodeIgniter\Database\Forge->createTable('reservation', true)
-#5 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\Reservation->up()
-#6 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
-#7 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
-#8 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
-#9 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
-#10 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\spark(102): CodeIgniter\CLI\Console->run()
-#11 {main}
-ERROR - 2023-12-14 09:29:16 --> mysqli_sql_exception: Can't create table `hotel`.`reservation` (errno: 150 "Foreign key constraint is incorrectly formed") in C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
-Stack trace:
-#0 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `r...', 0)
-#1 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `r...')
-#2 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `r...')
-#3 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `r...')
-#4 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\app\Database\Migrations\2023-12-14-091305_Reservation.php(43): CodeIgniter\Database\Forge->createTable('reservation', true)
-#5 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\Reservation->up()
-#6 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
-#7 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
-#8 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
-#9 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
-#10 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\spark(102): CodeIgniter\CLI\Console->run()
-#11 {main}
-ERROR - 2023-12-14 09:30:45 --> mysqli_sql_exception: Can't create table `hotel`.`reservation` (errno: 150 "Foreign key constraint is incorrectly formed") in C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
-Stack trace:
-#0 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `r...', 0)
-#1 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `r...')
-#2 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `r...')
-#3 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `r...')
-#4 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\app\Database\Migrations\2023-12-14-091305_Reservation.php(43): CodeIgniter\Database\Forge->createTable('reservation', true)
-#5 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\Reservation->up()
-#6 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
-#7 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
-#8 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
-#9 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
-#10 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\spark(102): CodeIgniter\CLI\Console->run()
-#11 {main}
-ERROR - 2023-12-14 09:31:02 --> mysqli_sql_exception: Can't create table `hotel`.`reservation` (errno: 150 "Foreign key constraint is incorrectly formed") in C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
-Stack trace:
-#0 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `r...', 0)
-#1 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `r...')
-#2 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `r...')
-#3 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `r...')
-#4 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\app\Database\Migrations\2023-12-14-091305_Reservation.php(43): CodeIgniter\Database\Forge->createTable('reservation', true)
-#5 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\Reservation->up()
-#6 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
-#7 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
-#8 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
-#9 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
-#10 C:\Users\ilmag\OneDrive\Documents\Kuliah\Semester 5\TST\Tubes TST\hotel-system\spark(102): CodeIgniter\CLI\Console->run()
+#0 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `r...', 0)
+#1 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `r...')
+#2 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `r...')
+#3 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `r...')
+#4 C:\xampp\htdocs\hotel-system\app\Database\Migrations\2023-12-14-091305_Reservation.php(60): CodeIgniter\Database\Forge->createTable('reservation', true)
+#5 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\Reservation->up()
+#6 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\hotel-system\spark(102): CodeIgniter\CLI\Console->run()
 #11 {main}

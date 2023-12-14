@@ -10,39 +10,54 @@ class Reservation extends Migration
     {
         //
         $this->forge->addField([
-			'reservationID'      => [
-				'type'           => 'VARCHAR',
-				'constraint'     => 10
-			],
-			'guestID'       => [
-				'type'           => 'VARCHAR',
-                'constraint'    => 10
-			],
-			'employeeID'      => [
-				'type'           => 'VARCHAR',
-				'constraint'     => 10
-			],
-			'checkInDate' => [
-				'type'           => 'DATE',
-			],
+            'id' => [
+                'type'           => 'INT',
+                'constraint'     => 5,
+                'unsigned'       => true,
+                'auto_increment' => true,
+            ],
+            'guestID'       => [
+                'type'           => 'INT',
+                'constraint'     => 5,
+                'unsigned'       => true,
+            ],
+            'employeeID'      => [
+                'type'           => 'INT',
+                'constraint'     => 5,
+                'unsigned'       => true,
+            ],
+            'checkInDate' => [
+                'type'           => 'DATE',
+            ],
             'checkOutDate' => [
                 'type'           => 'DATE',
             ],
             'paymentID'     => [
-                'type'          => 'VARCHAR',
-                'constraint'    => 10
-            ]
-		]);
+                'type'           => 'INT',
+                'constraint'     => 5,
+                'unsigned'       => true,
+            ],
+            'created_at' => [
+                'type'       => 'DATETIME',
+                'null'       => true,
+            ],
+            'updated_at' => [
+                'type'       => 'DATETIME',
+                'null'       => true,
+            ],
+            'deleted_at' => [
+                'type'       => 'DATETIME',
+                'null'       => true,
+            ],
+        ]);
 
-		// Membuat primary key
-		$this->forge->addKey('reservationID', TRUE);
-        $this->forge->addForeignKey('guestID', 'guest', 'guestID', 'CASCADE', 'CASCADE', 'fk_reservation_guest');
-        $this->forge->addForeignKey('employeeID', 'reservationPIC', 'employeeID', 'CASCADE', 'CASCADE', 'fk_reservation_pic');
-        $this->forge->addForeignKey('paymentID', 'payment', 'paymentID', 'CASCADE', 'CASCADE', 'fk_reservation_payment');
-
-		// Membuat tabel news
-		$this->forge->createTable('reservation', TRUE);
-
+        // Membuat primary key
+        $this->forge->addKey('id', TRUE);
+        $this->forge->addForeignKey('guestID', 'guest', 'id', 'CASCADE', 'CASCADE', 'fk_reservation_guest');
+        $this->forge->addForeignKey('employeeID', 'reservation_pic', 'id', 'CASCADE', 'CASCADE', 'fk_reservation_reservationPIC');
+        $this->forge->addForeignKey('paymentID', 'payment', 'id', 'CASCADE', 'CASCADE', 'fk_reservation_payment');
+        // Membuat tabel news
+        $this->forge->createTable('reservation', TRUE);
     }
 
     public function down()
