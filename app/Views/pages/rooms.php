@@ -1,4 +1,3 @@
-<!-- layout/header -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,12 +21,9 @@
                 <tr>
                     <th scope="col">Room Number</th>
                     <th scope="col">Floor</th>
-                    <th scope="col">
-                        Room Type
-                    </th>
-                    <th scope="col">
-                        Availability
-                    </th>
+                    <th scope="col">Room Type</th>
+                    <th scope="col">Availability</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody id="tableBody">
@@ -37,6 +33,54 @@
                         <td><?= $room['floor'] ?></td>
                         <td><?= $room['roomType'] ?></td>
                         <td><?= $room['availability'] ?></td>
+                        <td>
+                            <!-- Edit button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal<?= $key ?>">
+                                Edit
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="editModal<?= $key ?>" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="editModalLabel">Edit Room</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label for="editRoomNumber">Room Number</label>
+                                                    <input type="text" class="form-control" id="editRoomNumber" value="<?= $room['roomNumber'] ?>" readonly>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="editFloor">Floor</label>
+                                                    <input type="text" class="form-control" id="editFloor" value="<?= $room['floor'] ?>" readonly>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="editRoomType">Room Type</label>
+                                                    <select class="form-control" id="editRoomType" name="editRoomType">
+                                                        <option value="Deluxe" <?= ($room['roomType'] == 'Deluxe') ? 'selected' : '' ?>>Deluxe</option>
+                                                        <option value="Family" <?= ($room['roomType'] == 'Family') ? 'selected' : '' ?>>Family</option>
+                                                        <option value="Suite" <?= ($room['roomType'] == 'Suite') ? 'selected' : '' ?>>Suite</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="editAvailability">Availability</label>
+                                                    <select class="form-control" id="editAvailability" name="editAvailability">
+                                                        <option value="Available" <?= ($room['availability'] == 'Available') ? 'selected' : '' ?>>Available</option>
+                                                        <option value="Unavailable" <?= ($room['availability'] == 'Unavailable') ? 'selected' : '' ?>>Unavailable</option>
+                                                    </select>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

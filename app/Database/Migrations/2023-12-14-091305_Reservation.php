@@ -53,16 +53,16 @@ class Reservation extends Migration
 
         // Membuat primary key
         $this->forge->addKey('id', TRUE);
-        $this->forge->addForeignKey('guestID', 'guest', 'id', 'CASCADE', 'CASCADE', 'fk_reservation_guest');
+        $this->forge->addForeignKey('guestID', 'guests', 'id', 'CASCADE', 'CASCADE', 'fk_reservation_guest');
         $this->forge->addForeignKey('employeeID', 'reservation_pic', 'id', 'CASCADE', 'CASCADE', 'fk_reservation_reservationPIC');
-        $this->forge->addForeignKey('paymentID', 'payment', 'id', 'CASCADE', 'CASCADE', 'fk_reservation_payment');
+        $this->forge->addForeignKey('paymentID', 'payments', 'id', 'CASCADE', 'CASCADE', 'fk_reservation_payment');
         // Membuat tabel news
-        $this->forge->createTable('reservation', TRUE);
+        $this->forge->createTable('reservations', TRUE);
     }
 
     public function down()
     {
         //
-        $this->forge->dropTable('reservation');
+        $this->forge->dropTable('reservations');
     }
 }
