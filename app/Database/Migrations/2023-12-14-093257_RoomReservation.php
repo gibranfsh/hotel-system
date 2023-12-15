@@ -42,16 +42,16 @@ class RoomReservation extends Migration
 
 		// Membuat primary key
 		$this->forge->addKey('id', TRUE);
-		$this->forge->addForeignKey('reservationID', 'reservation', 'id', 'CASCADE', 'CASCADE', 'fk_roomReservation_reservation');
-		$this->forge->addForeignKey('roomNumber', 'room', 'roomNumber', 'CASCADE', 'CASCADE', 'fk_roomReservation_roomNumber');
+		$this->forge->addForeignKey('reservationID', 'reservations', 'id', 'CASCADE', 'CASCADE', 'fk_roomReservation_reservation');
+		$this->forge->addForeignKey('roomNumber', 'rooms', 'roomNumber', 'CASCADE', 'CASCADE', 'fk_roomReservation_roomNumber');
 
 		// Membuat tabel news
-		$this->forge->createTable('room_reservation', TRUE);
+		$this->forge->createTable('room_reservations', TRUE);
 	}
 
 	public function down()
 	{
 		//
-		$this->forge->dropTable('room_reservation');
+		$this->forge->dropTable('room_reservations');
 	}
 }

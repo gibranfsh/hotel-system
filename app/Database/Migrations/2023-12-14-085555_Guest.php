@@ -48,12 +48,12 @@ class Guest extends Migration
 		$this->forge->addKey('id', TRUE);
 
 		// Membuat tabel news
-		$this->forge->createTable('guest', TRUE);
+		$this->forge->createTable('guests', TRUE);
     }
 
     public function down()
     {
         //
-		$this->forge->dropTable('guest');
+		$this->forge->dropTable('guests');
     }
 }

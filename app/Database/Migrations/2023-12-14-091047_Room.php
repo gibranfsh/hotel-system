@@ -41,13 +41,13 @@ class Room extends Migration
 		$this->forge->addKey('roomNumber', TRUE);
 
 		// Membuat tabel news
-		$this->forge->createTable('room', TRUE);
+		$this->forge->createTable('rooms', TRUE);
     
     }
 
     public function down()
     {
         //
-        $this->forge->dropTable('room');
+        $this->forge->dropTable('rooms');
     }
 }

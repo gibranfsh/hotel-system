@@ -44,12 +44,12 @@ class Payment extends Migration
 		$this->forge->addKey('id', TRUE);
 
 		// Membuat tabel news
-		$this->forge->createTable('payment', TRUE);
+		$this->forge->createTable('payments', TRUE);
     }
 
     public function down()
     {
         //
-        $this->forge->dropTable('payment');
+        $this->forge->dropTable('payments');
     }
 }
