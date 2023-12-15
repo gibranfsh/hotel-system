@@ -26,7 +26,7 @@
 
         h2 {
             text-align: center;
-            color: #007bff;
+            color: #AA5AA6;
         }
 
         input {
@@ -34,13 +34,24 @@
         }
 
         button {
-            background-color: #007bff;
+            background-color: #AA5AA6;
             color: #fff;
             width: 100%;
+            
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #774174;
+        }
+
+        .btn-primary {
+            background-color: #AA5AA6;
+            border-color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #774174;
+            border-color: #fff;
         }
     </style>
 </head>
