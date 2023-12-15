@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./app/Views/**/*.php"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'inter': ['Inter'],
+      },
+    },
   },
   plugins: [],
 }
