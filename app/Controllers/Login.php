@@ -8,6 +8,6 @@ class Login extends BaseController
 {
     public function index()
     {
-        return view('pages/login');
+        return view('layout/header').view('pages/login');
     }
 }
