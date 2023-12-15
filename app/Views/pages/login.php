@@ -13,6 +13,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-family: 'Inter';
         }
 
         .login-container {
@@ -45,19 +46,20 @@
 </head>
 
 <body>
-    <div class="login-container">
-        <h2>Login</h2>
+    <div>
+        <h2 class='font-bold'>Login</h2>
         <form action="/login_action" method="POST">
-            <div class="mb-3">
+            <div class="mt-8 mb-3">
                 <input type="email" class="form-control" name="email" placeholder="Email" required>
             </div>
             <div class="mb-3">
                 <input type="password" class="form-control" name="password" placeholder="Password" required>
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <div class='mt-8'>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
         </form>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 

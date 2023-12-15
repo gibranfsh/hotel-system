@@ -1,6 +1,6 @@
 <!-- header.php -->
         <div class='bg-white flex align-center items-center' style='height: 72px; padding: 16px 48px;'>
-            <button style='color: purple' href='/'>Login</button>
+            <button style='color: purple''><a href='/login'>Login</a></button>
         </div>
         <div style="padding: 60px; background-size:100%;
             background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(113,9,121,0.11638652042848385) 35%, rgba(110,60,111,1) 98%),

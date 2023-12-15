@@ -61,6 +61,6 @@ class Rooms extends BaseController
             'data' => $data,
         ];
 
-        return view('layout/navbar') . view('pages/rooms', $viewData) . view('layout/footer');
+        return view('layout/header') . view('layout/navbar') . view('pages/rooms', $viewData) . view('layout/footer');
     }
 }
