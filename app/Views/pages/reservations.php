@@ -43,6 +43,41 @@
                                 Edit
                             </button>
 
+                            <!-- Modal -->
+                            <div class="modal fade" id="editModal<?= $key ?>" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="editModalLabel">Edit Room</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label for="editRoomNumber">Room Number</label>
+                                                    <input type="text" class="form-control" id="editRoomNumber<?= $key ?>" name="editRoomNumber" readonly>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="editGuestID">Guest ID</label>
+                                                    <input type="text" class="form-control" id="editGuestID" name="editGuestID" value="<?= $reservation['guestID'] ?>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="editCheckInDate">Check-In Date</label>
+                                                    <input type="text" class="form-control datepicker" id="editCheckInDate" name="editCheckInDate" value="<?= $reservation['checkInDate'] ?>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="editCheckOutDate">Check-Out Date</label>
+                                                    <input type="text" class="form-control datepicker" id="editCheckOutDate" name="editCheckOutDate" value="<?= $reservation['checkOutDate'] ?>">
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </td>
                     </tr>
                 <?php endforeach; ?>

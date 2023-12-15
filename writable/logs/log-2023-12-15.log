@@ -114,3 +114,15 @@ in APPPATH\Views\pages\reservations.php on line 67.
  8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\ilmag\\OneDrive\\Documents\\Kuliah\\Semester 5\\TST\\Tubes TST\\hotel-system\\public\\index.php')
+CRITICAL - 2023-12-15 11:37:16 --> Undefined variable $room
+in APPPATH\Views\pages\reservations.php on line 60.
+ 1 APPPATH\Views\pages\reservations.php(60): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $room', 'C:\\Users\\ilmag\\OneDrive\\Documents\\Kuliah\\Semester 5\\TST\\Tubes TST\\hotel-system\\app\\Views\\pages\\reservations.php', 60)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\Users\\ilmag\\OneDrive\\Documents\\Kuliah\\Semester 5\\TST\\Tubes TST\\hotel-system\\app\\Views\\pages\\reservations.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('pages/reservations', [], true)
+ 5 APPPATH\Controllers\Reservations.php(22): view('pages/reservations', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Reservations->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reservations))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\ilmag\\OneDrive\\Documents\\Kuliah\\Semester 5\\TST\\Tubes TST\\hotel-system\\public\\index.php')
