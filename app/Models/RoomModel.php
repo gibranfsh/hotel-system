@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Room extends Model
+class RoomModel extends Model
 {
     protected $table            = 'rooms';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'roomNumber';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;

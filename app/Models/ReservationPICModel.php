@@ -4,19 +4,18 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Guest extends Model
+class ReservationPICModel extends Model
 {
-    protected $table            = 'guests';
+    protected $table            = 'reservation_pic';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-
     protected $allowedFields    = [
-        'guestName',
         'phoneNumber',
         'address',
+        'password',
     ];
 
     // Dates

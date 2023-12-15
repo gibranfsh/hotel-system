@@ -4,20 +4,19 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Reservation extends Model
+class GuestModel extends Model
 {
-    protected $table            = 'reservations';
+    protected $table            = 'guests';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
+
     protected $allowedFields    = [
-        'guestID',
-        'employeeID',
-        'checkInDate',
-        'checkOutDate',
-        'paymentID',
+        'guestName',
+        'phoneNumber',
+        'address',
     ];
 
     // Dates
