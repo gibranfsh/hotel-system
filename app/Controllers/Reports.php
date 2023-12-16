@@ -2,45 +2,35 @@
 
 namespace App\Controllers;
 
-class Reports extends BaseController {
-    public function index() : string {
-        $data = [
-            [
-                'month' => 1,       // nanti diekstrak dari checkout date aja
-                'year' => 2024,        // nanti diekstrak dari checkout date aja
-                'reservationID' => 1,
-                'billTotal' => 300
-            ],
-            [
-                'month' => 1,       // nanti diekstrak dari checkout date aja
-                'year' => 2024,        // nanti diekstrak dari checkout date aja
-                'reservationID' => 2,
-                'billTotal' => 400
-            ],
-            [
-                'month' => 1,       // nanti diekstrak dari checkout date aja
-                'year' => 2024,        // nanti diekstrak dari checkout date aja
-                'reservationID' => 3,
-                'billTotal' => 500
-            ],
-            [
-                'month' => 2,       // nanti diekstrak dari checkout date aja
-                'year' => 2024,        // nanti diekstrak dari checkout date aja
-                'reservationID' => 4,
-                'billTotal' => 100
-            ],
-            [
-                'month' => 3,
-                'year' => 2024,
-                'reservationID' => 5,
-                'billTotal' => 900
-            ]
-        ];
+use App\Models\PaymentModel;
+
+class Reports extends BaseController
+{
+    public function index(): string
+    {
+        $paymentModel = new PaymentModel();
+        $payments = $paymentModel->findAll();
+
+        $data = [];
+
+        foreach ($payments as $payment) {
+            // Extract month and year from created_at
+            $createdDate = date_create($payment['created_at']);
+            $month = date_format($createdDate, 'm');
+            $year = date_format($createdDate, 'Y');
+
+            $data[] = [
+                'month' => $month,
+                'year' => $year,
+                'paymentID' => $payment['id'],
+                'billTotal' => $payment['billTotal']
+            ];
+        }
 
         $viewData = [
             'data' => $data,
         ];
 
-        return view('layout/header').view('layout/navbar').view('pages/reports', $viewData).view('layout/footer');
+        return view('layout/header') . view('layout/navbar') . view('pages/reports', $viewData) . view('layout/footer');
     }
 }

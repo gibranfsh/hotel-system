@@ -4,19 +4,10 @@ namespace App\Controllers;
 
 use App\Models\ReservationModel;
 
-class Reservations extends BaseController {
-    public function index() : string {
-        $data = [
-            [
-                'reservationID' => 1,
-                'employeeID' => 1,
-                'guestID' => 1,
-                'roomNumber' => ['101', '102'],
-                'checkInDate' => '01-01-2023',
-                'checkOutDate' => '07-01-2023'
-            ]
-        ];
-        
+class Reservations extends BaseController
+{
+    public function index(): string
+    {
         $reservationModel = new ReservationModel();
         $reservations = $reservationModel->findAll();
 
@@ -24,10 +15,11 @@ class Reservations extends BaseController {
             'data' => $reservations,
         ];
 
-        return view('layout/navbar').view('pages/reservations', $viewData).view('layout/footer');
+        return view('layout/navbar') . view('pages/reservations', $viewData) . view('layout/footer');
     }
 
-    public function update($reservationID) {
+    public function update($reservationID)
+    {
         // Validate form data
         $validationRules = [
             'editCheckInDate' => 'required|valid_date',

@@ -121,3 +121,33 @@ INFO - 2023-12-16 03:11:31 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2023-12-16 03:11:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-12-16 03:11:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-12-16 03:11:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-16 03:32:46 --> Undefined array key "reservationID"
+in APPPATH\Controllers\Reports.php on line 58.
+ 1 APPPATH\Controllers\Reports.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "reservationID"', 'C:\\xampp\\htdocs\\hotel-system\\app\\Controllers\\Reports.php', 58)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Reports->index()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hotel-system\\public\\index.php')
+WARNING - 2023-12-16 03:40:21 --> [DEPRECATED] date_create(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Controllers\Reports.php on line 18.
+ 1 APPPATH\Controllers\Reports.php(18): date_create(null)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Reports->index()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hotel-system\\public\\index.php')
+INFO - 2023-12-16 03:41:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-12-16 03:41:37 --> [DEPRECATED] date_create(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Controllers\Reports.php on line 18.
+ 1 APPPATH\Controllers\Reports.php(18): date_create(null)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Reports->index()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hotel-system\\public\\index.php')
+WARNING - 2023-12-16 03:42:53 --> [DEPRECATED] date_create(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Controllers\Reports.php on line 18.
+ 1 APPPATH\Controllers\Reports.php(18): date_create(null)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Reports->index()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hotel-system\\public\\index.php')

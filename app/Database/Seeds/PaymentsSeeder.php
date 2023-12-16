@@ -14,14 +14,11 @@ class PaymentsSeeder extends Seeder
         // Sample data
         $data = [
             [
-                'amount' => 1500.00,
                 'billTotal' => 2000.00,
                 'paymentMethod' => 'Card',
                 'paymentStatus' => 'Paid',
             ],
             [
-                'reservationID' => 2,
-                'amount' => 1800.50,
                 'billTotal' => 2000.00,
                 'paymentMethod' => 'Debit',
                 'paymentStatus' => 'Unpaid',
