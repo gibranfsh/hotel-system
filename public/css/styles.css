@@ -594,10 +594,6 @@ video {
   position: relative;
 }
 
-.mb-0 {
-  margin-bottom: 0px;
-}
-
 .mb-3 {
   margin-bottom: 0.75rem;
 }
@@ -612,10 +608,6 @@ video {
 
 .mt-5 {
   margin-top: 1.25rem;
-}
-
-.mt-auto {
-  margin-top: auto;
 }
 
 .mt-8 {
@@ -667,25 +659,17 @@ video {
   background-color: rgb(250 232 255 / var(--tw-bg-opacity));
 }
 
-.bg-\[url\(\'\/img\/hero-pattern\.svg\'\)\] {
-  background-image: url('/img/hero-pattern.svg');
-}
-
-.bg-\[url\(\'\/img\/hotel\.svg\'\)\] {
-  background-image: url('/img/hotel.svg');
-}
-
-.bg-\[url\(\'\/img\/hotel\.jpg\'\)\] {
-  background-image: url('/img/hotel.jpg');
-}
-
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .text-center {
   text-align: center;
+}
+
+.text-\[40px\] {
+  font-size: 40px;
 }
 
 .text-lg {
@@ -693,22 +677,8 @@ video {
   line-height: 1.75rem;
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
-.text-\[40px\] {
-  font-size: 40px;
-}
-
 .font-bold {
   font-weight: 700;
-}
-
-.text-red-500 {
-  --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
 .text-white {
@@ -729,11 +699,6 @@ video {
 
 .outline {
   outline-style: solid;
-}
-
-.drop-shadow-xl {
-  --tw-drop-shadow: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .drop-shadow {

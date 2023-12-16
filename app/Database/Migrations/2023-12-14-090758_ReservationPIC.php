@@ -15,19 +15,28 @@ class ReservationPIC extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-			'phoneNumber'       => [
-				'type'           => 'VARCHAR',
+            'name' => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 45
+            ],
+            'email' => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 45,
+                'unique'         => true
+            ],
+            'password' => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 255,
+            ],
+            'phoneNumber'       => [
+                'type'           => 'VARCHAR',
                 'constraint'     => 15
-			],
-			'address'      => [
-				'type'           => 'VARCHAR',
-				'constraint'     => 255
-			],
-			'password' => [
-				'type'           => 'VARCHAR',
-				'constraint'     => 45
-			],
-			'created_at' => [
+            ],
+            'address'      => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 255
+            ],
+            'created_at' => [
                 'type'       => 'DATETIME',
                 'null'       => true,
             ],
@@ -39,13 +48,13 @@ class ReservationPIC extends Migration
                 'type'       => 'DATETIME',
                 'null'       => true,
             ],
-		]);
+        ]);
 
-		// Membuat primary key
-		$this->forge->addKey('id', TRUE);
+        // Membuat primary key
+        $this->forge->addKey('id', TRUE);
 
-		// Membuat tabel news
-		$this->forge->createTable('reservation_pic', TRUE);
+        // Membuat tabel news
+        $this->forge->createTable('reservation_pic', TRUE);
     }
 
     public function down()

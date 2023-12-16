@@ -17,8 +17,13 @@
         }
 
         .navbar-brand {
-            font-weight: bold;
-            color: #007bff;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            max-height: 50px; /* Adjust the max-height as needed */
+            margin-right: 10px; /* Adjust the margin as needed */
         }
 
         .navbar-nav .nav-link {
@@ -35,7 +40,9 @@
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="/">GIN Hotel</a>
+            <a class="navbar-brand" href="/">
+                <img src="/img/logo.png" alt="GIN Hotel Logo">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -48,6 +55,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/reports">Reports</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
                 </li>
             </ul>
         </div>

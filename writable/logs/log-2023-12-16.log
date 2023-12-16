@@ -1,0 +1,153 @@
+INFO - 2023-12-16 01:41:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-16 01:41:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-16 01:49:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-16 01:49:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-16 01:49:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-16 01:49:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-16 01:58:49 --> mysqli_sql_exception: Table 'hotel-system-db.employees' doesn't exist in C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `em...', 0)
+#1 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `em...')
+#2 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `em...')
+#3 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1800): CodeIgniter\Database\BaseConnection->query('INSERT INTO `em...', NULL, false)
+#4 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2191): CodeIgniter\Database\BaseBuilder->batchExecute('_insertBatch', 100)
+#5 C:\xampp\htdocs\hotel-system\app\Database\Seeds\EmployeesSeeder.php(30): CodeIgniter\Database\BaseBuilder->insertBatch(Array)
+#6 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\Seeder.php(146): App\Database\Seeds\EmployeesSeeder->run()
+#7 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Commands\Database\Seed.php(77): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#8 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run(Array)
+#9 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('db:seed', Array)
+#10 C:\xampp\htdocs\hotel-system\spark(102): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-12-16 02:02:51 --> mysqli_sql_exception: Unknown column 'employeeID' in 'field list' in C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `re...', 0)
+#1 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `re...')
+#2 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `re...')
+#3 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1800): CodeIgniter\Database\BaseConnection->query('INSERT INTO `re...', NULL, false)
+#4 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2191): CodeIgniter\Database\BaseBuilder->batchExecute('_insertBatch', 100)
+#5 C:\xampp\htdocs\hotel-system\app\Database\Seeds\ReservationsSeeder.php(32): CodeIgniter\Database\BaseBuilder->insertBatch(Array)
+#6 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\Seeder.php(146): App\Database\Seeds\ReservationsSeeder->run()
+#7 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Commands\Database\Seed.php(77): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#8 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run(Array)
+#9 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('db:seed', Array)
+#10 C:\xampp\htdocs\hotel-system\spark(102): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-12-16 02:08:12 --> mysqli_sql_exception: Unknown column 'reservationID' in 'field list' in C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `re...', 0)
+#1 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `re...')
+#2 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `re...')
+#3 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1800): CodeIgniter\Database\BaseConnection->query('INSERT INTO `re...', NULL, false)
+#4 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2191): CodeIgniter\Database\BaseBuilder->batchExecute('_insertBatch', 100)
+#5 C:\xampp\htdocs\hotel-system\app\Database\Seeds\ReservationsSeeder.php(32): CodeIgniter\Database\BaseBuilder->insertBatch(Array)
+#6 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\Seeder.php(146): App\Database\Seeds\ReservationsSeeder->run()
+#7 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Commands\Database\Seed.php(77): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#8 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run(Array)
+#9 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('db:seed', Array)
+#10 C:\xampp\htdocs\hotel-system\spark(102): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-12-16 02:09:15 --> mysqli_sql_exception: Unknown column 'roomNumber' in 'field list' in C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `re...', 0)
+#1 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `re...')
+#2 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `re...')
+#3 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1800): CodeIgniter\Database\BaseConnection->query('INSERT INTO `re...', NULL, false)
+#4 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2191): CodeIgniter\Database\BaseBuilder->batchExecute('_insertBatch', 100)
+#5 C:\xampp\htdocs\hotel-system\app\Database\Seeds\ReservationsSeeder.php(30): CodeIgniter\Database\BaseBuilder->insertBatch(Array)
+#6 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\Seeder.php(146): App\Database\Seeds\ReservationsSeeder->run()
+#7 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Commands\Database\Seed.php(77): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#8 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run(Array)
+#9 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('db:seed', Array)
+#10 C:\xampp\htdocs\hotel-system\spark(102): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-12-16 02:30:06 --> mysqli_sql_exception: Can't create table `hotel-system-db`.`payments` (errno: 150 "Foreign key constraint is incorrectly formed") in C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `p...', 0)
+#1 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `p...')
+#2 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `p...')
+#3 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `p...')
+#4 C:\xampp\htdocs\hotel-system\app\Database\Migrations\2023-12-14-085944_Payment.php(53): CodeIgniter\Database\Forge->createTable('payments', true)
+#5 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\Payment->up()
+#6 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\hotel-system\spark(102): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-12-16 02:30:52 --> mysqli_sql_exception: Can't create table `hotel-system-db`.`room_reservations` (errno: 150 "Foreign key constraint is incorrectly formed") in C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `r...', 0)
+#1 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `r...')
+#2 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `r...')
+#3 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `r...')
+#4 C:\xampp\htdocs\hotel-system\app\Database\Migrations\2023-12-14-093257_RoomReservation.php(49): CodeIgniter\Database\Forge->createTable('room_reservatio...', true)
+#5 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\RoomReservation->up()
+#6 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\hotel-system\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\hotel-system\spark(102): CodeIgniter\CLI\Console->run()
+#11 {main}
+INFO - 2023-12-16 02:41:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-16 02:41:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-16 02:41:18 --> Undefined array key "reservationID"
+in APPPATH\Views\pages\reservations.php on line 34.
+ 1 APPPATH\Views\pages\reservations.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "reservationID"', 'C:\\xampp\\htdocs\\hotel-system\\app\\Views\\pages\\reservations.php', 34)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\hotel-system\\app\\Views\\pages\\reservations.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('pages/reservations', [], true)
+ 5 APPPATH\Controllers\Reservations.php(28): view('pages/reservations', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Reservations->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reservations))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hotel-system\\public\\index.php')
+CRITICAL - 2023-12-16 02:42:54 --> implode(): Argument #2 ($array) must be of type ?array, string given
+in APPPATH\Views\pages\reservations.php on line 37.
+ 1 APPPATH\Views\pages\reservations.php(37): implode(', ', '101')
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\hotel-system\\app\\Views\\pages\\reservations.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('pages/reservations', [], true)
+ 5 APPPATH\Controllers\Reservations.php(30): view('pages/reservations', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Reservations->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reservations))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hotel-system\\public\\index.php')
+INFO - 2023-12-16 03:09:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-16 03:11:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-16 03:11:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-16 03:11:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-16 03:11:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-16 03:11:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-16 03:11:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-16 03:32:46 --> Undefined array key "reservationID"
+in APPPATH\Controllers\Reports.php on line 58.
+ 1 APPPATH\Controllers\Reports.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "reservationID"', 'C:\\xampp\\htdocs\\hotel-system\\app\\Controllers\\Reports.php', 58)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Reports->index()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hotel-system\\public\\index.php')
+WARNING - 2023-12-16 03:40:21 --> [DEPRECATED] date_create(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Controllers\Reports.php on line 18.
+ 1 APPPATH\Controllers\Reports.php(18): date_create(null)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Reports->index()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hotel-system\\public\\index.php')
+INFO - 2023-12-16 03:41:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-12-16 03:41:37 --> [DEPRECATED] date_create(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Controllers\Reports.php on line 18.
+ 1 APPPATH\Controllers\Reports.php(18): date_create(null)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Reports->index()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hotel-system\\public\\index.php')
+WARNING - 2023-12-16 03:42:53 --> [DEPRECATED] date_create(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Controllers\Reports.php on line 18.
+ 1 APPPATH\Controllers\Reports.php(18): date_create(null)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Reports->index()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hotel-system\\public\\index.php')
