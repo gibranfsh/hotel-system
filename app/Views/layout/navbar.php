@@ -22,8 +22,10 @@
         }
 
         .navbar-brand img {
-            max-height: 50px; /* Adjust the max-height as needed */
-            margin-right: 10px; /* Adjust the margin as needed */
+            max-height: 50px;
+            /* Adjust the max-height as needed */
+            margin-right: 10px;
+            /* Adjust the margin as needed */
         }
 
         .navbar-nav .nav-link {
@@ -32,6 +34,19 @@
 
         .navbar-nav .nav-link:hover {
             color: #0056b3;
+        }
+
+        /* Style for the logout button */
+        .navbar-nav .nav-item:last-child .nav-link {
+            background-color: #dc3545;
+            color: #fff;
+            border-radius: 5px;
+            padding: 8px 15px;
+        }
+
+        .navbar-nav .nav-item:last-child .nav-link:hover {
+            background-color: #c82333;
+            color: #fff;
         }
     </style>
 </head>

@@ -55,4 +55,21 @@ class Reservations extends BaseController
             return redirect()->to('/reservations');
         }
     }
+
+    public function delete($reservationID)
+    {
+        // Create model object
+        $reservationModel = new ReservationModel();
+
+        // Delete data
+        if ($reservationModel->delete($reservationID)) {
+            // Successful delete, redirect to reservations page with success message
+            session()->setFlashdata('success', 'Reservation deleted successfully');
+            return redirect()->to('/reservations');
+        } else {
+            // Delete failed, redirect back to reservations page with an error message
+            session()->setFlashdata('error', 'Failed to delete reservation');
+            return redirect()->to('/reservations');
+        }
+    }
 }

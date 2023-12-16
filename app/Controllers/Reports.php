@@ -9,7 +9,8 @@ class Reports extends BaseController
     public function index(): string
     {
         $paymentModel = new PaymentModel();
-        $payments = $paymentModel->findAll();
+        // find payments where paymentStatus is 'Paid'
+        $payments = $paymentModel->where('paymentStatus', 'Paid')->findAll();
 
         $data = [];
 

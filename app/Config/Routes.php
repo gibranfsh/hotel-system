@@ -8,6 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 $routes->get('/reservations', 'Reservations::index');
 $routes->put('/reservations/update/(:num)', 'Reservations::update/$1');
+$routes->delete('/reservations/delete/(:num)', 'Reservations::delete/$1');
 $routes->get('/rooms', 'Rooms::index');
 $routes->put('/rooms/update/(:num)', 'Rooms::update/$1');
 $routes->get('/reports', 'Reports::index');
