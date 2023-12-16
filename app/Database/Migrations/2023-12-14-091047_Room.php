@@ -9,8 +9,10 @@ class Room extends Migration
     public function up()
     {
         $this->forge->addField([
-            'roomNumber'          => [
-                'type'           => 'INT'
+            'roomNumber' => [
+                'type'           => 'INT',
+                'constraint'     => 5,
+                'unsigned'       => true,
             ],
             'floor'       => [
                 'type'           => 'INT',
