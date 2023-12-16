@@ -1,14 +1,14 @@
 <!-- header.php -->
-        <div class='bg-white flex align-center items-center' style='height: 72px; padding: 16px 48px;'>
+        <!-- <div class='bg-white flex align-center items-center' style='height: 72px; padding: 16px 48px;'>
             <button style='color: purple''><a href='/login'>Login</a></button>
-        </div>
+        </div> -->
         <div style="padding: 60px; background-size:100%;
             background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(113,9,121,0.11638652042848385) 35%, rgba(110,60,111,1) 98%),
             url('/img/hotel.jpg');">
             <div class='flex items-center justify-center'>
-                <div id='container-logo' class='mt-15 align-center w-96 h-min-content rounded-2xl shadow'>
+                <!-- <div id='container-logo' class='mt-15 align-center w-96 h-min-content rounded-2xl shadow'>
                     <img src='img/logo.png'>
-                </div>
+                </div> -->
             </div>
             <div class='text-center text-white text-[40px] mt-8 font-bold drop-shadow'>
                 Temukan kenyamanan di tengah kota

@@ -37,7 +37,7 @@
             background-color: #AA5AA6;
             color: #fff;
             width: 100%;
-            
+
         }
 
         button:hover {
@@ -57,10 +57,15 @@
 </head>
 
 <body>
-    <div>
+    <div class="login-container">
         <h2 class='font-bold'>Login</h2>
-        <form action="/login_action" method="POST">
-            <div class="mt-8 mb-3">
+        <?php if (session()->getFlashdata('error')) : ?>
+            <div class="alert alert-danger" role="alert">
+                <?= session()->getFlashdata('error') ?>
+            </div>
+        <?php endif; ?>
+        <form action="/login" method="POST">
+            <div class="mb-3">
                 <input type="email" class="form-control" name="email" placeholder="Email" required>
             </div>
             <div class="mb-3">

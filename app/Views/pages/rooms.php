@@ -50,7 +50,9 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form>
+                                            <form action="/rooms/update/<?= $room['roomNumber'] ?>" method="POST" enctype="multipart/form-data">
+                                                <?= csrf_field(); ?>
+                                                <input type="hidden" name="_method" value="PUT">
                                                 <div class="form-group">
                                                     <label for="editRoomNumber">Room Number</label>
                                                     <input type="text" class="form-control" id="editRoomNumber" value="<?= $room['roomNumber'] ?>" readonly>

@@ -9,21 +9,21 @@ class Room extends Migration
     public function up()
     {
         $this->forge->addField([
-			'roomNumber'          => [
-				'type'           => 'INT'
-			],
-			'floor'       => [
-				'type'           => 'INT',
-			],
-			'roomType'      => [
-				'type'           => 'ENUM',
-				'constraint'     => ['Deluxe', 'Superior', 'Family', 'Suite']
-			],
-			'availability' => [
-				'type'           => 'ENUM',
-				'constraint'     => ['Available', 'Unavailable']
-			],
-			'created_at' => [
+            'roomNumber'          => [
+                'type'           => 'INT'
+            ],
+            'floor'       => [
+                'type'           => 'INT',
+            ],
+            'roomType'      => [
+                'type'           => 'ENUM',
+                'constraint'     => ['Deluxe', 'Superior', 'Family', 'Suite']
+            ],
+            'availability' => [
+                'type'           => 'ENUM',
+                'constraint'     => ['Available', 'Unavailable']
+            ],
+            'created_at' => [
                 'type'       => 'DATETIME',
                 'null'       => true,
             ],
@@ -35,14 +35,13 @@ class Room extends Migration
                 'type'       => 'DATETIME',
                 'null'       => true,
             ],
-		]);
+        ]);
 
-		// Membuat primary key
-		$this->forge->addKey('roomNumber', TRUE);
+        // Membuat primary key
+        $this->forge->addKey('roomNumber', TRUE);
 
-		// Membuat tabel news
-		$this->forge->createTable('rooms', TRUE);
-    
+        // Membuat tabel news
+        $this->forge->createTable('rooms', TRUE);
     }
 
     public function down()

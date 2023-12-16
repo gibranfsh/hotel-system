@@ -13,9 +13,11 @@ class ReservationPICModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
+        'email',
+        'password',
+        'name',
         'phoneNumber',
         'address',
-        'password',
     ];
 
     // Dates
