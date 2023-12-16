@@ -4,7 +4,7 @@ namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
 
-class RoomsData extends Seeder
+class RoomsSeeder extends Seeder
 {
     public function run()
     {

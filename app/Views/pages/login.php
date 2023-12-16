@@ -59,11 +59,13 @@
 <body>
     <div class="login-container">
         <h2 class='font-bold'>Login</h2>
+        
         <?php if (session()->getFlashdata('error')) : ?>
             <div class="alert alert-danger" role="alert">
                 <?= session()->getFlashdata('error') ?>
             </div>
         <?php endif; ?>
+
         <form action="/login" method="POST">
             <div class="mb-3">
                 <input type="email" class="form-control" name="email" placeholder="Email" required>
