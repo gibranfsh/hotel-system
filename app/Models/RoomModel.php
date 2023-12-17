@@ -7,14 +7,16 @@ use CodeIgniter\Model;
 class RoomModel extends Model
 {
     protected $table            = 'rooms';
-    protected $primaryKey       = 'roomNumber';
+    protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
+        'id',
         'roomType',
         'availability',
+        'price'
     ];
 
     // Dates

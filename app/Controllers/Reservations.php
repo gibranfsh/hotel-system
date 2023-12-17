@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\ReservationModel;
+use App\Models\RoomModel;
 
 class Reservations extends BaseController
 {
@@ -10,6 +11,43 @@ class Reservations extends BaseController
     {
         $reservationModel = new ReservationModel();
         $reservations = $reservationModel->findAll();
+
+        // get room number from roomID for each reservation, and return as new array
+        $roomModel = new RoomModel();
+        $roomNumbers = [];
+        $roomFloors = [];
+        $totalPrices = [];
+
+        foreach ($reservations as $reservation) {
+            $room = $roomModel->find($reservation['roomID']);
+            $roomNumbers[] = $room['roomNumber'];
+        }
+
+        // get room floor from roomID for each reservation, and return as new array
+        foreach ($reservations as $reservation) {
+            $room = $roomModel->find($reservation['roomID']);
+            $roomFloors[] = $room['floor'];
+        }
+
+        foreach ($reservations as $reservation) {
+            $room = $roomModel->find($reservation['roomID']);
+            $totalPrices[] = $room['price'];
+        }
+
+        // add room numbers to reservations array
+        for ($i = 0; $i < count($reservations); $i++) {
+            $reservations[$i]['roomNumber'] = $roomNumbers[$i];
+        }
+
+        // add room floors to reservations array
+        for ($i = 0; $i < count($reservations); $i++) {
+            $reservations[$i]['floor'] = $roomFloors[$i];
+        }
+
+        // add total prices to reservations array
+        for ($i = 0; $i < count($reservations); $i++) {
+            $reservations[$i]['totalPrice'] = $totalPrices[$i];
+        }
 
         $viewData = [
             'data' => $reservations,

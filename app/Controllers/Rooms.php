@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\RoomModel;
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 
 class Rooms extends BaseController
 {
@@ -18,11 +20,11 @@ class Rooms extends BaseController
         return view('layout/header') . view('layout/navbar') . view('pages/rooms', $viewData) . view('layout/footer');
     }
 
-    public function update($roomNumber)
+    public function update($id)
     {
         // Validate form data
         $validationRules = [
-            'editRoomType' => 'required|in_list[Deluxe,Family,Suite]',
+            'editRoomType' => 'required|in_list[Deluxe,Family, Superior, Suite]',
             'editAvailability' => 'required|in_list[Available,Unavailable]',
         ];
 
@@ -45,12 +47,39 @@ class Rooms extends BaseController
         $roomModel = new RoomModel();
 
         // Update data
-        if ($roomModel->update($roomNumber, $data)) {
+        if ($roomModel->update($id, $data)) {
             // Successful update, redirect to rooms page with success message
             return redirect()->to('/rooms')->with('success', 'Room updated successfully');
         } else {
             // Update failed, redirect back to rooms page with an error message
             return redirect()->to('/rooms')->with('error', 'Failed to update room');
         }
+    }
+
+    public function getRooms()
+    {
+        // Get JWT Bearer Token from request header
+        $token = $this->request->getHeaderLine('Authorization');
+
+        // return $this->response->setJSON(['token' => $token])->setStatusCode(200);
+        // Verify the token
+        $key = getenv("JWT_SECRET");
+
+        try {
+            $decoded = JWT::decode($token, new Key($key, "HS256"));
+            // Token is valid, you can access user data using $decoded
+        } catch (\Exception $e) {
+            // Token is invalid, return error response
+            return $this->response->setJSON(['error' => 'Unauthorized: Invalid token'])->setStatusCode(401);
+        }
+
+        // Create model object
+        $roomModel = new RoomModel();
+
+        // Get all rooms
+        $rooms = $roomModel->findAll();
+
+        // Return JSON response and set HTTP status code
+        return $this->response->setJSON($rooms)->setStatusCode(200);
     }
 }

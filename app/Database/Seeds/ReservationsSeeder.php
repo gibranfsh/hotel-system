@@ -14,7 +14,7 @@ class ReservationsSeeder extends Seeder
             [
                 'guestID' => 1,
                 'employeeID' => 1,
-                'roomNumber' => 101,
+                'roomID' => 1,
                 'paymentID' => 1,
                 'checkInDate' => '2023-01-01',
                 'checkOutDate' => '2023-01-07',
@@ -22,7 +22,7 @@ class ReservationsSeeder extends Seeder
             [
                 'guestID' => 1,
                 'employeeID' => 1,
-                'roomNumber' => 102,
+                'roomID' => 3,
                 'paymentID' => 2,
                 'checkInDate' => '2023-03-01',
                 'checkOutDate' => '2023-03-07',

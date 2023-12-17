@@ -14,61 +14,71 @@ class RoomsSeeder extends Seeder
                 'roomNumber' => '101',
                 'floor' => '1',
                 'roomType' => 'Deluxe',
-                'availability' => 'Available'
+                'availability' => 'Available',
+                'price' => '1500000'
             ],
             [
                 'roomNumber' => '102',
                 'floor' => '3',
                 'roomType' => 'Deluxe',
-                'availability' => 'Available'
+                'availability' => 'Available',
+                'price' => '1500000'
             ],
             [
                 'roomNumber' => '103',
                 'floor' => '2',
-                'roomType' => 'Deluxe',
-                'availability' => 'Available'
+                'roomType' => 'Superior',
+                'availability' => 'Available',
+                'price' => '1000000'
             ],
             [
                 'roomNumber' => '104',
                 'floor' => '2',
                 'roomType' => 'Family',
-                'availability' => 'Available'
+                'availability' => 'Available',
+                'price' => '2000000'
             ],
             [
                 'roomNumber' => '105',
                 'floor' => '1',
                 'roomType' => 'Family',
-                'availability' => 'Available'
+                'availability' => 'Available',
+                'price' => '2000000'
             ],
             [
                 'roomNumber' => '106',
                 'floor' => '1',
                 'roomType' => 'Suite',
-                'availability' => 'Unavailable'
+                'availability' => 'Unavailable',
+                'price' => '2500000'
             ],
             [
                 'roomNumber' => '107',
                 'floor' => '4',
                 'roomType' => 'Deluxe',
-                'availability' => 'Available'
+                'availability' => 'Available',
+                'price' => '1500000'
             ],
             [
                 'roomNumber' => '108',
                 'floor' => '5',
                 'roomType' => 'Deluxe',
-                'availability' => 'Available'
+                'availability' => 'Available',
+                'price' => '1500000'
             ],
             [
                 'roomNumber' => '109',
                 'floor' => '1',
                 'roomType' => 'Family',
-                'availability' => 'Unavailable'
+                'availability' => 'Unavailable',
+                'price' => '2000000'
             ],
             [
                 'roomNumber' => '110',
                 'floor' => '1',
                 'roomType' => 'Suite',
-                'availability' => 'Available'
+                'availability' => 'Available',
+                'price' => '2500000'
             ],
         ];
 

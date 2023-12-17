@@ -46,6 +46,7 @@ class Auth implements FilterInterface
             return $request;
         } catch (\Exception $e) {
             // Token is invalid, redirect to login
+            // send error message to response
             return redirect()->to('/login');
         }
     }

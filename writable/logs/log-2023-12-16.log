@@ -267,3 +267,36 @@ WARNING - 2023-12-16 06:20:48 --> [DEPRECATED] date_create(): Passing null to pa
  6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hotel-system\\public\\index.php')
 INFO - 2023-12-16 06:20:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-12-16 06:57:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-16 12:38:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-12-16 12:55:39 --> Attempt to read property "email" on null
+in APPPATH\Controllers\Login.php on line 77.
+ 1 APPPATH\Controllers\Login.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "email" on null', 'C:\\xampp\\htdocs\\hotel-system\\app\\Controllers\\Login.php', 77)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Login->loginActionProvider()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hotel-system\\public\\index.php')
+CRITICAL - 2023-12-16 13:08:06 --> Attempt to read property "email" on null
+in APPPATH\Controllers\Login.php on line 77.
+ 1 APPPATH\Controllers\Login.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "email" on null', 'C:\\xampp\\htdocs\\hotel-system\\app\\Controllers\\Login.php', 77)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Login->loginActionProvider()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hotel-system\\public\\index.php')
+CRITICAL - 2023-12-16 13:12:40 --> Attempt to read property "email" on null
+in APPPATH\Controllers\Login.php on line 79.
+ 1 APPPATH\Controllers\Login.php(79): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "email" on null', 'C:\\xampp\\htdocs\\hotel-system\\app\\Controllers\\Login.php', 79)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Login->loginActionProvider()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hotel-system\\public\\index.php')
+CRITICAL - 2023-12-16 13:21:42 --> Attempt to read property "email" on null
+in APPPATH\Controllers\Login.php on line 77.
+ 1 APPPATH\Controllers\Login.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "email" on null', 'C:\\xampp\\htdocs\\hotel-system\\app\\Controllers\\Login.php', 77)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Login->loginActionProvider()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hotel-system\\public\\index.php')

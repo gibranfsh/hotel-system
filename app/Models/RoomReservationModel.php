@@ -14,7 +14,7 @@ class RoomReservationModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         'reservationID',
-        'roomNumber',
+        'roomID',
         'price',
     ];
 

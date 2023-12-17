@@ -19,20 +19,24 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
+                    <th scope="col">Room ID</th>
                     <th scope="col">Room Number</th>
                     <th scope="col">Floor</th>
                     <th scope="col">Room Type</th>
                     <th scope="col">Availability</th>
+                    <th scope="col">Price</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody id="tableBody">
                 <?php foreach ($data as $key => $room) : ?>
                     <tr>
+                        <td><?= $room['id'] ?></td>
                         <td><?= $room['roomNumber'] ?></td>
                         <td><?= $room['floor'] ?></td>
                         <td><?= $room['roomType'] ?></td>
                         <td><?= $room['availability'] ?></td>
+                        <td><?= $room['price'] ?></td>
                         <td>
                             <!-- Edit button trigger modal -->
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal<?= $key ?>">
@@ -50,7 +54,7 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="/rooms/update/<?= $room['roomNumber'] ?>" method="POST" enctype="multipart/form-data">
+                                            <form action="/rooms/update/<?= $room['id'] ?>" method="POST" enctype="multipart/form-data">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="PUT">
                                                 <div class="form-group">
@@ -67,6 +71,7 @@
                                                         <option value="Deluxe" <?= ($room['roomType'] == 'Deluxe') ? 'selected' : '' ?>>Deluxe</option>
                                                         <option value="Family" <?= ($room['roomType'] == 'Family') ? 'selected' : '' ?>>Family</option>
                                                         <option value="Suite" <?= ($room['roomType'] == 'Suite') ? 'selected' : '' ?>>Suite</option>
+                                                        <option value="Superior" <?= ($room['roomType'] == 'Superior') ? 'selected' : '' ?>>Superior</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
