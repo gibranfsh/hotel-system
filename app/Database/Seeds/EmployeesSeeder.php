@@ -30,6 +30,13 @@ class EmployeesSeeder extends Seeder
                 'password' => password_hash('admin', PASSWORD_DEFAULT),
                 'phoneNumber' => '1234567890',
                 'address' => '123 Main St, City',
+            ],
+            [
+                'name' => 'Hoteloka Provider Account',
+                'email' => 'hoteloka@gin.com',
+                'password' => password_hash('hotelokaxgin', PASSWORD_DEFAULT),
+                'phoneNumber' => '1234567890',
+                'address' => '123 Main St, City',
             ]
         ];
 

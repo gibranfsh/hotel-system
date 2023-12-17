@@ -67,6 +67,62 @@ class Login extends BaseController
         return redirect()->to('/');
     }
 
+    // login for hotel providers, accept email and password from request body
+    public function loginActionProvider()
+    {
+        // get request body
+        $body = $this->request->getJSON();
+
+        // get email and password from request body
+        $email = $body->email;
+        $password = $body->password;
+
+        // check if email and password is empty
+        if (empty($email) || empty($password)) {
+            // return error response
+            return $this->response->setJSON(['error' => 'Email and password are required'])->setStatusCode(400);
+        }
+
+        $picModel = new ReservationPICModel();
+
+        $pic = $picModel->where('email', $email)->first();
+
+        if (!$pic) {
+            session()->setFlashdata('error', 'Email tidak ditemukan');
+            return redirect()->to('/login');
+        }
+
+        // dd($password, $pic['password']);
+        if (!password_verify($password, $pic['password'])) {
+            session()->setFlashdata('error', 'Password salah');
+            return redirect()->to('/login');
+        }
+
+        $key = getenv("JWT_SECRET");
+
+        $iat = time();
+        $exp = $iat + (60 * 60);
+
+        $payload = [
+            "iss" => "ci4-jwt",
+            "sub" => "login_token",
+            "iat" => $iat,
+            "exp" => $exp,
+            "data" => [
+                "id" => $pic['id'],
+                "email" => $pic['email'],
+                "name" => $pic['name'],
+                "phoneNumber" => $pic['phoneNumber'],
+                "address" => $pic['address'],
+            ]
+        ];
+
+        $token = JWT::encode($payload, $key, "HS256");
+
+        // return success response with pic data and token
+        return $this->response->setJSON(['data' => $pic, 'token' => $token])->setStatusCode(200);
+    }
+
     // logout delete cookie
     public function logout()
     {

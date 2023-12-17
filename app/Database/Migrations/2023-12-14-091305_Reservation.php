@@ -26,7 +26,7 @@ class Reservation extends Migration
                 'constraint'     => 5,
                 'unsigned'       => true,
             ],
-            'roomNumber' => [
+            'roomID'      => [
                 'type'           => 'INT',
                 'constraint'     => 5,
                 'unsigned'       => true,
@@ -60,7 +60,7 @@ class Reservation extends Migration
         $this->forge->addKey('id', TRUE);
         $this->forge->addForeignKey('guestID', 'guests', 'id', 'CASCADE', 'CASCADE', 'fk_reservation_guest');
         $this->forge->addForeignKey('employeeID', 'reservation_pic', 'id', 'CASCADE', 'CASCADE', 'fk_reservation_reservationPIC');
-        $this->forge->addForeignKey('roomNumber', 'rooms', 'roomNumber', 'CASCADE', 'CASCADE', 'fk_reservation_room');
+        $this->forge->addForeignKey('roomID', 'rooms', 'id', 'CASCADE', 'CASCADE', 'fk_reservation_room');
         $this->forge->addForeignKey('paymentID', 'payments', 'id', 'CASCADE', 'CASCADE', 'fk_reservation_payment');
         // Membuat tabel news
         $this->forge->createTable('reservations', TRUE);

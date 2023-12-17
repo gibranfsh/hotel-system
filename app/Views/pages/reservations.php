@@ -35,8 +35,10 @@
                     <th scope="col">PIC ID</th>
                     <th scope="col">Guest ID</th>
                     <th scope="col">Room Number</th>
+                    <th scope="col">Floor</th>
                     <th scope="col">Check In Date</th>
                     <th scope="col">Check Out Date</th>
+                    <th scope="col">Total Price</th>
                     <th scope='col'>Actions</th>
                 </tr>
             </thead>
@@ -47,8 +49,10 @@
                         <td><?= $reservation['employeeID'] ?></td>
                         <td><?= $reservation['guestID'] ?></td>
                         <td><?= $reservation['roomNumber'] ?></td>
+                        <td><?= $reservation['floor'] ?></td>
                         <td><?= $reservation['checkInDate'] ?></td>
                         <td><?= $reservation['checkOutDate'] ?></td>
+                        <td><?= $reservation['totalPrice'] ?></td>
                         <td>
                             <!-- Edit button trigger modal -->
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal<?= $key ?>">
@@ -62,7 +66,36 @@
 
                             <!-- Modal -->
                             <div class="modal fade" id="editModal<?= $key ?>" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-                                <!-- ... (unchanged) -->
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="editModalLabel">Edit Room</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="/reservations/update/<?= $reservation['id'] ?>" method="POST" enctype="multipart/form-data">
+                                                <?= csrf_field(); ?>
+                                                <input type="hidden" name="_method" value="PUT">
+                                                <div class="form-group">
+                                                    <label for="editRoomID">Room ID</label>
+                                                    <input type="text" class="form-control" id="editRoomID" value="<?= $reservation['roomID'] ?>" readonly>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="editCheckInDate">Check-In Date</label>
+                                                    <input type="text" class="form-control datepicker" id="editCheckInDate<?= $key ?>" name="editCheckInDate" value="<?= $reservation['checkInDate'] ?>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="editCheckOutDate">Check-Out Date</label>
+                                                    <input type="text" class="form-control datepicker" id="editCheckOutDate<?= $key ?>" name="editCheckOutDate" value="<?= $reservation['checkOutDate'] ?>">
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- Delete Confirmation Modal -->

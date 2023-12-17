@@ -9,6 +9,12 @@ class Room extends Migration
     public function up()
     {
         $this->forge->addField([
+            'id' => [
+                'type'           => 'INT',
+                'constraint'     => 5,
+                'unsigned'       => true,
+                'auto_increment' => true,
+            ],
             'roomNumber' => [
                 'type'           => 'INT',
                 'constraint'     => 5,
@@ -25,6 +31,10 @@ class Room extends Migration
                 'type'           => 'ENUM',
                 'constraint'     => ['Available', 'Unavailable']
             ],
+            'price' => [
+                'type'           => 'INT',
+                'constraint'     => 10,
+            ],
             'created_at' => [
                 'type'       => 'DATETIME',
                 'null'       => true,
@@ -40,7 +50,7 @@ class Room extends Migration
         ]);
 
         // Membuat primary key
-        $this->forge->addKey('roomNumber', TRUE);
+        $this->forge->addKey('id', TRUE);
 
         // Membuat tabel news
         $this->forge->createTable('rooms', TRUE);
