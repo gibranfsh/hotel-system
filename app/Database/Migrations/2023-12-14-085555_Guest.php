@@ -18,17 +18,22 @@ class Guest extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-			'guestName'       => [
+            'user_id' => [
+                'type'           => 'INT',
+                'constraint'     => 5,
+                'unsigned'       => true,
+            ],
+			'full_name'       => [
 				'type'           => 'VARCHAR',
 				'constraint'     => '255'
 			],
-			'phoneNumber'      => [
+			'phone_number'      => [
 				'type'           => 'VARCHAR',
 				'constraint'     => 10,
 			],
-			'address' => [
-				'type'           => 'VARCHAR',
-				'constraint'           => 255,
+			'email' => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 255,
 			],
 			'created_at' => [
                 'type'       => 'DATETIME',

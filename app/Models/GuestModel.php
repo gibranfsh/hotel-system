@@ -14,9 +14,10 @@ class GuestModel extends Model
     protected $protectFields    = true;
 
     protected $allowedFields    = [
-        'guestName',
-        'phoneNumber',
-        'address',
+        'user_id',
+        'full_name',
+        'email',
+        'phone_number',
     ];
 
     // Dates
