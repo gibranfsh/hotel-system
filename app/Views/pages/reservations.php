@@ -7,10 +7,20 @@
     <title>Reservations</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+
+    <style>
+        /* Custom CSS for setting container width */
+        .custom-container {
+            max-width: 1750px;
+            /* Set your desired width here */
+            margin: 0 auto;
+            /* Center the container */
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container mt-5">
+    <div class="custom-container mt-5">
         <h2 class="mb-4">Reservations</h2>
 
         <div class="mb-3">
@@ -34,10 +44,14 @@
                     <th scope="col">Reservation ID</th>
                     <th scope="col">PIC ID</th>
                     <th scope="col">Guest ID</th>
+                    <th scope="col">Guest Name</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Email</th>
                     <th scope="col">Room Number</th>
                     <th scope="col">Floor</th>
                     <th scope="col">Check In Date</th>
                     <th scope="col">Check Out Date</th>
+                    <th scope="col">Created At</th>
                     <th scope="col">Total Price</th>
                     <th scope='col'>Actions</th>
                 </tr>
@@ -48,10 +62,14 @@
                         <td><?= $reservation['id'] ?></td>
                         <td><?= $reservation['employeeID'] ?></td>
                         <td><?= $reservation['guestID'] ?></td>
+                        <td><?= $reservation['guestData']['full_name'] ?></td>
+                        <td><?= $reservation['guestData']['phone_number'] ?></td>
+                        <td><?= $reservation['guestData']['email'] ?></td>
                         <td><?= $reservation['roomNumber'] ?></td>
                         <td><?= $reservation['floor'] ?></td>
                         <td><?= $reservation['checkInDate'] ?></td>
                         <td><?= $reservation['checkOutDate'] ?></td>
+                        <td><?= $reservation['guestData']['created_at'] ?></td>
                         <td><?= $reservation['totalPrice'] ?></td>
                         <td>
                             <!-- Edit button trigger modal -->

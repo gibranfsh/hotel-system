@@ -19,6 +19,7 @@ class Reservations extends BaseController
         $roomNumbers = [];
         $roomFloors = [];
         $totalPrices = [];
+        $guestData = [];
 
         foreach ($reservations as $reservation) {
             $room = $roomModel->find($reservation['roomID']);
@@ -36,6 +37,13 @@ class Reservations extends BaseController
             $totalPrices[] = $room['price'];
         }
 
+        // get guest data from guestID for each reservation, and return as new array
+        $guestModel = new GuestModel();
+        foreach ($reservations as $reservation) {
+            $guest = $guestModel->find($reservation['guestID']);
+            $guestData[] = $guest;
+        }
+
         // add room numbers to reservations array
         for ($i = 0; $i < count($reservations); $i++) {
             $reservations[$i]['roomNumber'] = $roomNumbers[$i];
@@ -49,6 +57,11 @@ class Reservations extends BaseController
         // add total prices to reservations array
         for ($i = 0; $i < count($reservations); $i++) {
             $reservations[$i]['totalPrice'] = $totalPrices[$i];
+        }
+
+        // add guest data to reservations array
+        for ($i = 0; $i < count($reservations); $i++) {
+            $reservations[$i]['guestData'] = $guestData[$i];
         }
 
         $viewData = [
