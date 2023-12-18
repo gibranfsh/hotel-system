@@ -6,9 +6,51 @@ use App\Models\GuestModel;
 use App\Models\PaymentModel;
 use App\Models\ReservationModel;
 use App\Models\RoomModel;
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 
 class Reservations extends BaseController
 {
+    private function authenticate(): string
+    {
+        $hotelokaAPIEmail = getenv('hotelokaAPIEmail');
+        $hotelokaAPIPassword = getenv('hotelokaAPIPassword');
+
+        $hotelokaAPILoginURL = getenv('hotelokaBaseURL') . '/api/login';
+
+        // dd($hotelokaAPIEmail, $hotelokaAPIPassword, $hotelokaAPILoginURL);
+        $client = new Client();
+
+        $loginData = [
+            'email' => $hotelokaAPIEmail,
+            'password' => $hotelokaAPIPassword,
+        ];
+
+        $jwt = '';
+
+        try {
+            // Send a POST request
+            $response = $client->post($hotelokaAPILoginURL, [
+                'json' => $loginData,
+            ]);
+
+            // Get the response body as a string
+            $body = $response->getBody()->getContents();
+
+            // Process the response
+            $body = json_decode($body, true);
+
+            $jwt = $body['token'];
+        } catch (GuzzleException $e) {
+            // Catch and handle exceptions
+            dd($e->getMessage());
+        }
+
+        return $jwt;
+    }
+
     public function index(): string
     {
         $reservationModel = new ReservationModel();
@@ -71,14 +113,27 @@ class Reservations extends BaseController
         return view('layout/navbar') . view('pages/reservations', $viewData) . view('layout/footer');
     }
 
-    // for creating a new reservation, for API provider use, accept a body of JSON data
     public function create()
     {
         try { // Get JSON request body
+            // Get JWT from request Authorization header
+            $token = $this->request->getHeaderLine('Authorization');
+
+            // Validate JWT
+            $key = getenv('JWT_SECRET');
+
+            try {
+                $decodedJWT = JWT::decode($token, new Key($key, 'HS256'));
+            } catch (\Exception $e) {
+                // Log the exception message for debugging
+                log_message('error', 'Exception during JWT validation: ' . $e->getMessage());
+
+                // Return a JSON response indicating a server error
+                return $this->response->setStatusCode(500)->setJSON(['error' => 'Internal Server Error']);
+            }
+
             $json = $this->request->getJSON();
 
-            // return $this->response->setStatusCode(201)->setJSON(['json' => $json]);
-            // Validate JSON data
             $validationRules = [
                 'user_id' => 'required|numeric',
                 'user_full_name' => 'required|string',
@@ -109,14 +164,20 @@ class Reservations extends BaseController
             $roomModel = new RoomModel();
             $room = $roomModel->find($roomID);
 
-            // Make new Guest
+            // Make new Guest but check if guest already exists
             $guestModel = new GuestModel();
-            $guestID = $guestModel->insert([
-                'user_id' => $userID,
-                'full_name' => $userFullName,
-                'email' => $userEmail,
-                'phone_number' => $userPhoneNumber,
-            ]);
+            $guest = $guestModel->where('email', $userEmail)->first();
+
+            if (!$guest) {
+                $guestID = $guestModel->insert([
+                    'user_id' => $userID,
+                    'full_name' => $userFullName,
+                    'email' => $userEmail,
+                    'phone_number' => $userPhoneNumber,
+                ]);
+            } else {
+                $guestID = $guest['id'];
+            }
 
             // Make new Payment
             $paymentModel = new PaymentModel();
@@ -144,7 +205,7 @@ class Reservations extends BaseController
             ]);
 
             if ($reservationID) {
-                return $this->response->setStatusCode(201)->setJSON(['success' => 'Reservation created successfully']);
+                return $this->response->setStatusCode(201)->setJSON(['success' => 'Reservation created successfully', 'reservationID' => $reservationID]);
             } else {
                 return $this->response->setStatusCode(500)->setJSON(['error' => 'Failed to create reservation']);
             }
@@ -184,31 +245,113 @@ class Reservations extends BaseController
         $reservationModel = new ReservationModel();
 
         // Update data
-        if ($reservationModel->update($reservationID, $data)) {
-            // Successful update, redirect to reservations page with success message
-            session()->setFlashdata('success', 'Reservation updated successfully');
-            return redirect()->to('/reservations');
-        } else {
-            // Update failed, redirect back to reservations page with an error message
+        try {
+            $reservationModel->update($reservationID, $data);
+        } catch (\Exception $e) {
+            // Log the exception message for debugging
+            log_message('error', 'Exception during reservation update: ' . $e->getMessage());
+
+            // Return a JSON response indicating a server error
             session()->setFlashdata('error', 'Failed to update reservation');
             return redirect()->to('/reservations');
+        }
+
+        // Send a PUT request to Hoteloka API
+        $client = new Client();
+
+        $jwt = $this->authenticate();
+
+        $hotelokaAPIReservationURL = getenv('hotelokaBaseURL') . '/api/booking/' . $reservationID;
+
+        try {
+            // Send a PUT request
+            $response = $client->put($hotelokaAPIReservationURL, [
+                'headers' => [
+                    'Authorization' => $jwt,
+                    'Content-Type' => 'application/json',
+                ],
+                'json' => [
+                    'checkInDate' => $checkInDate,
+                    'checkOutDate' => $checkOutDate,
+                ],
+            ]);
+
+            // Get the response body as a string
+            $body = $response->getBody()->getContents();
+
+            // Process the response
+            $body = json_decode($body, true);
+
+            // Check if the update was successful
+            if ($body['message'] === "Booking updated successfully") {
+                // Successful update, redirect to reservations page with success message
+                session()->setFlashdata('success', 'Reservation updated successfully');
+                return redirect()->to('/reservations');
+            } else {
+                // Update failed, redirect back to reservations page with an error message
+                session()->setFlashdata('error', 'Failed to update reservation');
+                return redirect()->to('/reservations');
+            }
+        } catch (GuzzleException $e) {
+            // Catch and handle exceptions
+            log_message('error', 'Exception during reservation update: ' . $e->getMessage());
+            dd($e->getMessage());
+            // session()->setFlashdata('error', 'Failed to update reservation');
+            // return redirect()->to('/reservations');
         }
     }
 
     public function delete($reservationID)
     {
         // Create model object
+        $roomModel = new RoomModel();
+        $paymentModel = new PaymentModel();
         $reservationModel = new ReservationModel();
 
-        // Delete data
-        if ($reservationModel->delete($reservationID)) {
-            // Successful delete, redirect to reservations page with success message
-            session()->setFlashdata('success', 'Reservation deleted successfully');
-            return redirect()->to('/reservations');
-        } else {
-            // Delete failed, redirect back to reservations page with an error message
-            session()->setFlashdata('error', 'Failed to delete reservation');
-            return redirect()->to('/reservations');
+        $roomModel->update($reservationModel->find($reservationID)['roomID'], [
+            'availability' => 'Available',
+        ]);
+        $paymentModel->delete($reservationModel->find($reservationID)['paymentID']);
+        $reservationModel->delete($reservationID);
+
+        // Send a DELETE request to Hoteloka API
+        $client = new Client();
+
+        $jwt = $this->authenticate();
+
+        $hotelokaAPIReservationURL = getenv('hotelokaBaseURL') . '/api/booking/' . $reservationID;
+
+        try {
+            // Send a DELETE request
+            $response = $client->delete($hotelokaAPIReservationURL, [
+                'headers' => [
+                    'Authorization' => $jwt,
+                    'Content-Type' => 'application/json',
+                ],
+            ]);
+
+            // Get the response body as a string
+            $body = $response->getBody()->getContents();
+
+            // Process the response
+            $body = json_decode($body, true);
+
+            // Check if the delete was successful
+            if ($body['message'] === "Booking deleted successfully") {
+                // Successful delete, redirect to reservations page with success message
+                session()->setFlashdata('success', 'Reservation deleted successfully');
+                return redirect()->to('/reservations');
+            } else {
+                // Delete failed, redirect back to reservations page with an error message
+                session()->setFlashdata('error', 'Failed to delete reservation');
+                return redirect()->to('/reservations');
+            }
+        } catch (GuzzleException $e) {
+            // Catch and handle exceptions
+            log_message('error', 'Exception during reservation deletion: ' . $e->getMessage());
+            dd($e->getMessage());
+            // session()->setFlashdata('error', 'Failed to delete reservation');
+            // return redirect()->to('/reservations');
         }
     }
 }

@@ -38,7 +38,7 @@ class Login extends BaseController
         $key = getenv("JWT_SECRET");
 
         $iat = time();
-        $exp = $iat + (60 * 60);
+        $exp = $iat + (60 * 60 * 3);
 
         $payload = [
             "iss" => "ci4-jwt",
@@ -88,20 +88,18 @@ class Login extends BaseController
         $pic = $picModel->where('email', $email)->first();
 
         if (!$pic) {
-            session()->setFlashdata('error', 'Email tidak ditemukan');
-            return redirect()->to('/login');
+            return $this->response->setJSON(['error' => 'Account not found'])->setStatusCode(404);
         }
 
         // dd($password, $pic['password']);
         if (!password_verify($password, $pic['password'])) {
-            session()->setFlashdata('error', 'Password salah');
-            return redirect()->to('/login');
+            return $this->response->setJSON(['error' => 'Email or password is incorrect'])->setStatusCode(400);
         }
 
         $key = getenv("JWT_SECRET");
 
         $iat = time();
-        $exp = $iat + (60 * 60);
+        $exp = $iat + (60 * 60 * 3); 
 
         $payload = [
             "iss" => "ci4-jwt",
@@ -117,7 +115,11 @@ class Login extends BaseController
             ]
         ];
 
-        $token = JWT::encode($payload, $key, "HS256");
+        try {
+            $token = JWT::encode($payload, $key, "HS256");
+        } catch (\Exception $e) {
+            return $this->response->setJSON(['error' => $e->getMessage()])->setStatusCode(500);
+        }
 
         // return success response with pic data and token
         return $this->response->setJSON(['data' => $pic, 'token' => $token])->setStatusCode(200);
