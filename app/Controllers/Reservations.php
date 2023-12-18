@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\GuestModel;
+use App\Models\PaymentModel;
 use App\Models\ReservationModel;
 use App\Models\RoomModel;
 
@@ -54,6 +56,92 @@ class Reservations extends BaseController
         ];
 
         return view('layout/navbar') . view('pages/reservations', $viewData) . view('layout/footer');
+    }
+
+    // for creating a new reservation, for API provider use, accept a body of JSON data
+    public function create()
+    {
+        try { // Get JSON request body
+            $json = $this->request->getJSON();
+
+            // return $this->response->setStatusCode(201)->setJSON(['json' => $json]);
+            // Validate JSON data
+            $validationRules = [
+                'user_id' => 'required|numeric',
+                'user_full_name' => 'required|string',
+                'user_email' => 'required|valid_email',
+                'user_phone_number' => 'required|numeric',
+                'checkInDate' => 'required|valid_date',
+                'checkOutDate' => 'required|valid_date',
+                'roomID' => 'required|numeric',
+                'paymentMethod' => 'required|in_list[Card,Debit]',
+            ];
+
+            if (!$this->validate($validationRules)) {
+                // Validation failed, return a JSON response with errors
+                return $this->response->setStatusCode(400)->setJSON(['error' => $this->validator->getErrors()]);
+            }
+
+            // Validated JSON data
+            $userID = $json->user_id;
+            $userFullName = $json->user_full_name;
+            $userEmail = $json->user_email;
+            $userPhoneNumber = $json->user_phone_number;
+            $checkInDate = $json->checkInDate;
+            $checkOutDate = $json->checkOutDate;
+            $roomID = $json->roomID;
+            $paymentMethod = $json->paymentMethod;
+
+            // Additional data retrieval from RoomModel if needed
+            $roomModel = new RoomModel();
+            $room = $roomModel->find($roomID);
+
+            // Make new Guest
+            $guestModel = new GuestModel();
+            $guestID = $guestModel->insert([
+                'user_id' => $userID,
+                'full_name' => $userFullName,
+                'email' => $userEmail,
+                'phone_number' => $userPhoneNumber,
+            ]);
+
+            // Make new Payment
+            $paymentModel = new PaymentModel();
+            $paymentID = $paymentModel->insert([
+                'billTotal' => $room['price'],
+                'paymentMethod' => $paymentMethod,
+                'paymentStatus' => 'Paid',
+
+            ]);
+
+            // Make new Reservation
+            $reservationModel = new ReservationModel();
+            $reservationID = $reservationModel->insert([
+                'guestID' => $guestID,
+                'employeeID' => 1,
+                'roomID' => $roomID,
+                'paymentID' => $paymentID,
+                'checkInDate' => $checkInDate,
+                'checkOutDate' => $checkOutDate,
+            ]);
+
+            // Change room availability to unavailable
+            $roomModel->update($roomID, [
+                'availability' => 'Unavailable',
+            ]);
+
+            if ($reservationID) {
+                return $this->response->setStatusCode(201)->setJSON(['success' => 'Reservation created successfully']);
+            } else {
+                return $this->response->setStatusCode(500)->setJSON(['error' => 'Failed to create reservation']);
+            }
+        } catch (\Exception $e) {
+            // Log the exception message for debugging
+            log_message('error', 'Exception during reservation creation: ' . $e->getMessage());
+
+            // Return a JSON response indicating a server error
+            return $this->response->setStatusCode(500)->setJSON(['error' => 'Internal Server Error']);
+        }
     }
 
     public function update($reservationID)

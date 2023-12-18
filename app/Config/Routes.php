@@ -29,4 +29,5 @@ $routes->get('/logout', 'Login::logout');
 $routes->group('api', function ($routes) {
     $routes->get('rooms', 'Rooms::getRooms');
     $routes->post('login', 'Login::loginActionProvider');
+    $routes->post('reservations', 'Reservations::create');
 });

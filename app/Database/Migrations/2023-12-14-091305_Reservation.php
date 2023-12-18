@@ -8,7 +8,6 @@ class Reservation extends Migration
 {
     public function up()
     {
-        //
         $this->forge->addField([
             'id' => [
                 'type'           => 'INT',

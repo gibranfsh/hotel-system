@@ -11,14 +11,10 @@ class GuestsSeeder extends Seeder
         // Sample data
         $data = [
             [
-                'guestName' => 'Alice Johnson',
-                'phoneNumber' => '1112223333',
-                'address' => '789 Pine St, Village',
-            ],
-            [
-                'guestName' => 'Bob Williams',
-                'phoneNumber' => '4445556666',
-                'address' => '321 Elm St, Hamlet',
+                'user_id' => 3001,
+                'full_name' => 'Alice Johnson',
+                'phone_number' => '1112223333',
+                'email' => 'alicejohnson@gmail.com',
             ],
         ];
 
