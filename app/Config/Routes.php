@@ -25,7 +25,7 @@ $routes->get('/login', 'Login::index');
 $routes->post('/login', 'Login::loginAction');
 $routes->get('/logout', 'Login::logout');
 
-// Grouping API routes for hotel providers,
+// Grouping API routes for hotel providers
 $routes->group('api', function ($routes) {
     $routes->get('rooms', 'Rooms::getRooms');
     $routes->post('login', 'Login::loginActionProvider');
