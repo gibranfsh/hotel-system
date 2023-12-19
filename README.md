@@ -19,8 +19,8 @@ Kelompok 3 - K1 - Sistem dan Teknologi Informasi
 # Link lainnya
 * Link deployment: https://hotel-system.azurewebsites.net/
 
-(Username: admin@gin.com
+Username: admin@gin.com
 
-Password: admin)
+Password: admin
 
 * Sistem penyedia: https://github.com/gibranfsh/hotel-provider-system
