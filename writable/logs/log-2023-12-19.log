@@ -406,3 +406,4 @@ in SYSTEMPATH/Database/BaseConnection.php on line 428.
  5 SYSTEMPATH/CLI/Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
  6 SYSTEMPATH/CLI/Console.php(46): CodeIgniter\CLI\Commands->run('db:seed', [...])
  7 ROOTPATH/spark(102): CodeIgniter\CLI\Console->run()
+INFO - 2023-12-19 05:57:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
