@@ -1,5 +1,8 @@
 node_modules/
 .env
 
+# ignore vendor folder
+vendor/
+
 # Docker
 docker/volumes
